@@ -66,6 +66,9 @@ def _substitute(t, table="_", path=None, parent="", loc={}):
 
     for k,v in subs.items():
         ret[k] = _substitute(v,k,_path_,_table_, locals())
+
+    # Don't export the defaults
+    ret.pop("_defaults_",None)
     return ret
 
 def load(filename, _dict=dict, decoder=None):
