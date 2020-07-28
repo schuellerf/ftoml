@@ -33,3 +33,6 @@ def test_leave_others():
 
 def test_reserved_words():
     _load_compare(sys._getframe().f_code.co_name)
+
+def test_dynamic_fstring():
+    _load_compare(sys._getframe().f_code.co_name)

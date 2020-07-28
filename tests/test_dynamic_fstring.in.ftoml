@@ -1,0 +1,8 @@
+has_parent="{1 if len(\"{_parent_}\") > 1 else 0}"
+is_table="{1 if len(\"{_table_}\") > 1 else 0}"
+
+[sub1]
+_defaults_=["has_parent", "is_table"]
+
+[sub1.child]
+_defaults_=["has_parent", "is_table"]
