@@ -1,0 +1,6 @@
+url="https://example.com"
+
+[sub1]
+v1="{__url}"
+v2="{url}"
+url="https://example.net"

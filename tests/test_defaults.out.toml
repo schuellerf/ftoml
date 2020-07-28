@@ -1,0 +1,7 @@
+branch="master"
+
+[sub1]
+branch="master"
+
+[sub2]
+branch="can be overruled"

@@ -1,0 +1,3 @@
+protocol="https://"
+domain="{protocol}example.com"
+url="{domain}/test.html"

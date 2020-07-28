@@ -1,0 +1,8 @@
+branch="master"
+
+[sub1]
+_defaults_=["branch"]
+
+[sub2]
+_defaults_=["branch"]
+branch="can be overruled"
