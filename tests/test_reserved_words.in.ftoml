@@ -1,0 +1,5 @@
+module_url="https://example.com/{_parent_}/{_table_}.html"
+other_url="https://example.com/{_path_}"
+
+[first_level.pagename]
+_defaults_=["module_url", "other_url"]

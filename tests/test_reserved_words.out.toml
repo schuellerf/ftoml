@@ -1,0 +1,6 @@
+module_url="https://example.com//_.html"
+other_url="https://example.com/_"
+
+[first_level.pagename]
+module_url="https://example.com/first_level/pagename.html"
+other_url="https://example.com/__first_level_pagename"
