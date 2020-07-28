@@ -18,6 +18,8 @@ setup(
     packages=['ftoml'],
     license="MIT",
     long_description=readme_string,
+    # astroid is a depencency for fstring I needed to install ?!
+    install_requires=["toml", "fstring", "astroid"],
     python_requires=">=2.6, !=3.0.*, !=3.1.*, !=3.2.*",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
