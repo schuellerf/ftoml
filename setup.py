@@ -11,7 +11,8 @@ with open("README.rst") as readme_file:
 setup(
     name="ftoml",
     version=ftoml.__version__,
-    description="Python library unifying f-strings with Tom's Obvious, Minimal Language",
+    description="Python library unifying f-strings"
+                "with Tom's Obvious, Minimal Language",
     author="Florian Schüller",
     author_email="florian.schueller@gmail.com",
     url="https://github.com/schuellerf/ftoml",
