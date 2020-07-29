@@ -22,6 +22,8 @@ def _recursive_f(t, loc={}):
         if t == ret:
             break
         t = ret
+    # workaround for toml as it exports fstings as arrays
+    # with single letters
     return str(ret)
 
 
