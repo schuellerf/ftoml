@@ -14,7 +14,9 @@ def _load_compare(func_name):
 
 def test_load_dump():
     global d
-    l=ftoml.load(os.path.join(d,f"test_simple_fstring.in.ftoml"))
+    l=ftoml.load(os.path.join(d,"test_simple_fstring.in.ftoml"))
+    import collections
+    l = collections.OrderedDict(sorted(l.items()))
     dump=toml.dumps(l)
     assert dump == open(os.path.join(d,"test_simple_fstring.out.toml")).read()
 
