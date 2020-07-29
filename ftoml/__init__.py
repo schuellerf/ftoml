@@ -8,17 +8,22 @@ import toml
 import re
 import pprint
 from fstring import fstring as f
+import sys
+if sys.version_info[0] < 3:
+    check_for=unicode
+else:
+    check_for=str
 
 def _recursive_f(t, loc={}):
     """ Apply f-string expansion until
         no more patterns are there
         (until nothing changes anymore)
     """
-    if not isinstance(t,str):
+    if not (isinstance(t,str) or isinstance(t,check_for)):
         return t
     locals().update(loc)
     while True:
-        ret = f(t)
+        ret = f(str(t))
         if t == ret:
             break
         t = ret
@@ -38,8 +43,7 @@ def _substitute(t, table="_", path=None, parent="", loc={}):
     for k in _defaults_:
         keys[k]=keys.get(k,str(f("{{__{k}}}")))
 
-
-    keys.update(dict(filter(lambda x:isinstance(t[x[0]], str), t.items())))
+    keys.update(dict(filter(lambda x:isinstance(t[x[0]], str) or isinstance(t[x[0]], check_for), t.items())))
     subs = dict(filter(lambda x:isinstance(t[x[0]], dict), t.items()))
     lists = dict(filter(lambda x:isinstance(t[x[0]], list), t.items()))
 

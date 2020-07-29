@@ -2,3 +2,5 @@ ftoml.egg-info/
 __pycache__
 build
 dist
+*.pyc
+.tox

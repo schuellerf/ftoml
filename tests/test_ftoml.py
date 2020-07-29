@@ -3,13 +3,14 @@ import ftoml
 import pytest
 import sys
 import os
+from fstring import fstring as f
 
 d=os.path.dirname(os.path.realpath(__file__))
 
 # helper to load files named the same as the test-function
 def _load_compare(func_name):
     global d
-    assert ftoml.load(os.path.join(d,f"{func_name}.in.ftoml")) == toml.load(os.path.join(d,f"{func_name}.out.toml"))
+    assert ftoml.load(os.path.join(d,f("{func_name}.in.ftoml"))) == toml.load(os.path.join(d,f("{func_name}.out.toml")))
 
 def test_load_dump():
     global d
