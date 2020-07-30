@@ -20,7 +20,7 @@ you can do things like::
 ... and many things more
 
 Tox
-===
+###
 
 Prerequisites for pyenv according to https://github.com/pyenv/pyenv/wiki/Common-build-problems ::
 
@@ -38,12 +38,12 @@ then run tox::
     tox
 
 Internal
-========
+########
 
 Just some notes for me how to build and upload::
 
-    # release notes
-    git log --pretty='format:%as %h %s' HEAD...$(git describe --tags |awk -F - '//{ print $1 }')
+    # create tag with release notes
+    git tag -a -m "$(git log --pretty='format:%as %h %s' HEAD...$(git describe --tags |awk -F - '//{ print $1 }'))" VERSION
     rm -rf build dist
     python3 setup.py sdist bdist_wheel
     python3 -m twine upload --repository pypi dist/*

@@ -2,8 +2,6 @@
 with TOML
 """
 
-__version__ = "0.0.1"
-
 import toml
 from fstring import fstring as f
 import sys

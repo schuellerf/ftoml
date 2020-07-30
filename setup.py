@@ -4,13 +4,28 @@ except ImportError:
     from distutils.core import setup
 
 import ftoml
+import subprocess
 
 with open("README.rst") as readme_file:
     readme_string = readme_file.read()
 
+readme_string += """
+
+VERSIONS
+########
+
+"""
+
+readme_string += subprocess.run(['git', 'tag', '--sort=-v:refname', '-l' , '-n1000', """--format=%(refname:strip=2)
+*****
+
+%(contents)"""], stdout=subprocess.PIPE).stdout.decode('utf-8')
+
+version=subprocess.run(['git', 'describe'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+
 setup(
     name="ftoml",
-    version=ftoml.__version__,
+    version=version,
     description="Python library unifying f-strings"
                 "with Tom's Obvious, Minimal Language",
     author="Florian Schüller",
