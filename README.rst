@@ -37,5 +37,16 @@ then run tox::
 
     tox
 
+Internal
+========
+
+Just some notes for me how to build and upload::
+
+    # release notes
+    git log --pretty='format:%as %h %s' HEAD...$(git describe --tags |awk -F - '//{ print $1 }')
+    rm -rf build dist
+    python3 setup.py sdist bdist_wheel
+    python3 -m twine upload --repository pypi dist/*
+
 
 
