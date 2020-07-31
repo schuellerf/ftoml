@@ -59,3 +59,7 @@ def test_reserved_words():
 
 def test_dynamic_fstring():
     _load_compare(sys._getframe().f_code.co_name)
+
+
+def test_defaults_inherited():
+    _load_compare(sys._getframe().f_code.co_name)

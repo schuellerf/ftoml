@@ -40,7 +40,7 @@ def _substitute(t, table="_", path=None, parent="", loc={}):
 
     # get only strings - tables will be recursive
     keys = {}
-    _defaults_ = t.get("_defaults_", [])
+    _defaults_ = t.get("_defaults_", loc.get("_defaults_",[]))
     for k in _defaults_:
         keys[k] = keys.get(k, str(f("{{__{k}}}")))
 
@@ -61,6 +61,7 @@ def _substitute(t, table="_", path=None, parent="", loc={}):
     absoute_keys = dict([(_path_+"_"+k, v) for k, v in keys.items()])
 
     # can't use separate Namespace due to the implementation of fstring
+    locals().update({"_defaults_": _defaults_})
     locals().update(loc)
     locals().update(keys)
     locals().update(absoute_keys)

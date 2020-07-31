@@ -4,7 +4,4 @@ branch="master"
 branch="master"
 
 [sub2]
-test="foo"
-
-[sub2.subsub]
 branch="can be overruled"

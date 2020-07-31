@@ -1,10 +1,8 @@
 branch="master"
+# defaults can be inherited
+_defaults_=["branch"]
 
 [sub1]
-branch="master"
 
 [sub2]
-test="foo"
-
-[sub2.subsub]
 branch="can be overruled"

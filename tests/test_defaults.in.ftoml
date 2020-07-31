@@ -4,5 +4,8 @@ branch="master"
 _defaults_=["branch"]
 
 [sub2]
+test="foo"
+
+[sub2.subsub]
 _defaults_=["branch"]
 branch="can be overruled"
