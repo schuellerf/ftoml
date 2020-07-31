@@ -16,12 +16,20 @@ VERSIONS
 
 """
 
-readme_string += subprocess.run(['git', 'tag', '--sort=-v:refname', '-l' , '-n1000', """--format=%(refname:strip=2)
+try: 
+    readme_string += subprocess.check_output(['git', 'tag', '--sort=-v:refname', '-l' , '-n1000', """--format=%(refname:strip=2)
 *****
 
-%(contents)"""], stdout=subprocess.PIPE).stdout.decode('utf-8')
+%(contents)"""]).decode('utf-8')
+except:
+    readme_string += "...package build ran in an environment without git?"
 
-version=subprocess.run(['git', 'describe'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+try:
+    version=subprocess.check_output(['git', 'describe']).decode('utf-8')
+except:
+    version="0.0.0"
+
+
 
 setup(
     name="ftoml",
