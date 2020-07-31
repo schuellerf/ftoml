@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 try:
     from setuptools import setup
 except ImportError:
@@ -25,7 +27,7 @@ except:
     readme_string += "...package build ran in an environment without git?"
 
 try:
-    version=subprocess.check_output(['git', 'describe']).decode('utf-8')
+    version=subprocess.check_output(['git', 'describe']).decode('utf-8').strip()
 except:
     version="0.0.0"
 
