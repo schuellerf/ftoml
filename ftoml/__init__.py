@@ -45,7 +45,9 @@ def _substitute(t, table="_", path=None, parent="", loc={}):
         keys[k] = keys.get(k, str(f("{{__{k}}}")))
 
     keys.update(dict(filter(lambda x: isinstance(t[x[0]], str) or
-                isinstance(t[x[0]], check_for), t.items())))
+                isinstance(t[x[0]], check_for) or
+                isinstance(t[x[0]], float) or
+                isinstance(t[x[0]], int), t.items())))
     subs = dict(filter(lambda x: isinstance(t[x[0]], dict), t.items()))
     lists = dict(filter(lambda x: isinstance(t[x[0]], list), t.items()))
 

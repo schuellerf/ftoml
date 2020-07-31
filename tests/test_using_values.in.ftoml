@@ -1,0 +1,4 @@
+an_int=1
+a_float=2.0
+int_test='{an_int}'
+float_test='{a_float}'

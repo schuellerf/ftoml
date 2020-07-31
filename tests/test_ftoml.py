@@ -65,6 +65,10 @@ def test_defaults_inherited():
     _load_compare(sys._getframe().f_code.co_name)
 
 
+def test_using_values():
+    _load_compare(sys._getframe().f_code.co_name)
+
+
 def test_loads():
     vals = ftoml.loads("""loads='1'
 loads_test='{loads}'""")
