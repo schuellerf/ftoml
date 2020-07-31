@@ -37,6 +37,15 @@ then run tox::
 
     tox
 
+... syntax check::
+
+    flake8
+
+and codecoverage::
+
+    tox
+    firefox htmlcov/index.html
+
 Internal
 ########
 
